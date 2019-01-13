@@ -160,7 +160,7 @@ class CamHandler(BaseHTTPRequestHandler):
                 gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
                 faces=face_cascade.detectMultiScale(gray,1.3,5)
                 if len(faces) == 0:
-                    call_api("Buddy", "name")
+                   # call_api("Buddy", "name")
                     face_det = True
 
                 #gray_hands_left = gray[0:100, 900:1000]
@@ -168,10 +168,6 @@ class CamHandler(BaseHTTPRequestHandler):
                 ## change to a box with certain height and width
                 cv2.rectangle(img, (110,110) , (210,210) , (255,255,255), 2)
                 cv2.rectangle(img, (900,110) , (1000,210) , (255,255,255) ,2 )
-
-                cv2.rectangle(img, (1000,450) , (1100,550) , (220,20,60) ,2 )
-                font = cv2.FONT_HERSHEY_SIMPLEX
-                cv2.putText(img,'+',(1050,500), font, 2,(255,255,255),2,cv2.LINE_AA)
                 #print(q)
                 if (q % 2) == 0:
                     left1 = img[110:210, 110:210]
